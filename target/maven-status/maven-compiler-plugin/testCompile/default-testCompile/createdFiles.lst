@@ -1,0 +1,6 @@
+com\phptravels\pages\HomePage.class
+com\phptravels\pages\JourneyBeginsHerePage.class
+com\phptravels\SuiteConfiguration.class
+com\phptravels\pages\Page.class
+com\phptravels\TestNgTestBase.class
+com\phptravels\PhpTravelsTest.class

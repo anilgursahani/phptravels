@@ -40,7 +40,7 @@ public class TestNgTestBase {
   @BeforeSuite
   public void initTestSuite() throws IOException {
     
-      System.out.println("Before suite called");
+     
       config  = new SuiteConfiguration();
     baseUrl = config.getProperty("site.url");
     if (config.hasProperty("grid.url") && !"".equals(config.getProperty("grid.url"))) {
@@ -59,7 +59,7 @@ public class TestNgTestBase {
   @BeforeClass
 public void BeforeClass () 
 {
-    System.out.println("Before Class in the base class");
+    
     String userDir ;
    
      
@@ -84,11 +84,15 @@ public void BeforeClass ()
           {
               System.out.println(ioexception.getLocalizedMessage());
           }
-          
-          
-          
-          
+      
       }
+      else if  (browserName.equalsIgnoreCase("firefox"))
+              {
+                 String firefoxPath ;
+                  firefoxPath = userDir + "\\vendor\\" + "geckodriver.exe";
+                  System.setProperty("webdriver.gecko.driver", firefoxPath);
+              }
+     
     
       
       
@@ -96,13 +100,21 @@ public void BeforeClass ()
 
   @BeforeMethod
   public void initWebDriver() {
-     ChromeOptions chromeOptions ;
+     
+      if (browserName.equalsIgnoreCase("chrome"))
+      {
+      
+      ChromeOptions chromeOptions ;
       
      chromeOptions = new ChromeOptions();
      chromeOptions.addArguments("start-maximized");
     // driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
      driver = new RemoteWebDriver(service.getUrl(), chromeOptions);
-     
+      } 
+      else if (browserName.equalsIgnoreCase("firefox"))
+      {
+          driver = new FirefoxDriver();
+      }
   }
 
   @AfterSuite(alwaysRun = true)
@@ -113,15 +125,19 @@ public void BeforeClass ()
   @AfterClass
   public void createAndStopService()
   {
-      System.out.println("In After class of TestNGTestBase");
+     if (browserName.equalsIgnoreCase("chrome"))
+     {
+     
       service.stop();
+     }
       
   }
   
   @AfterMethod
   public void quitDriver()
   {
+    
       driver.quit();
-      
+     
   }
 }

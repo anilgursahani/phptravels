@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Reporter;
 
 /**
  * Sample page
@@ -76,9 +77,13 @@ public class HomePage extends Page {
       WebElement homepageFrontendElement ;
       homepageFrontendElement = Find(homePageFrontEndLocator);
       homepageFrontendElement.click();
-      
+      boolean windowSelected ;
       JourneyBeginsHerePage journeyBeginsHerePage = new JourneyBeginsHerePage(driver);
-      SelectWindow("PHPTRAVELS | Travel Technology Partner");
+     windowSelected = SelectWindow("PHPTRAVELS | Travel Technology Partner");
+     if (!windowSelected)
+     {
+        Reporter.log("Unable to select the Journey begins here page");
+     }
       return journeyBeginsHerePage ;
      
               

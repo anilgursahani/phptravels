@@ -28,7 +28,7 @@ public class SuiteConfiguration {
 
   public Capabilities getCapabilities() throws IOException {
     String capabilitiesFile = properties.getProperty("capabilities");
-    System.out.println("Capabilities file is " + capabilitiesFile);
+    
 
     Properties capsProps = new Properties();
     capsProps.load(SuiteConfiguration.class.getResourceAsStream(capabilitiesFile));

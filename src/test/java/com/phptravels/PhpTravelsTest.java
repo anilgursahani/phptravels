@@ -70,9 +70,8 @@ public void initPageObjects()
      title = journeypage.getTitle();
      String titleOfActiveElement ;
      boolean titlesMatch ;
-     
      titlesMatch = title.equals("PHPTRAVELS | Travel Technology Partner");
-     System.out.println("Title home page front end page is " + title);
+     
      Verify.verify(titlesMatch, "Page title does not match expected title", (Object) "PHPTRAVELS | Travel Technology Partner");
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("HOTELS"));
@@ -80,11 +79,10 @@ public void initPageObjects()
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
     
      Verify.verify(titleOfActiveElement.equals("FLIGHTS"));
-      System.out.println("titleOfActiveElement is " + titleOfActiveElement);
      journeypage.selectTours();
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("TOURS"));
-     System.out.println("titleOfActiveElement is " + titleOfActiveElement);
+    
  }
   
  
