@@ -12,7 +12,7 @@ Before running the tests the chrome and gecko drivers need to be installed. To i
 
 To run Selenium using Firefox install the latest stable version of the gecko driver.
 
-1. Go to the [gecko driver] (https://github.com/mozilla/geckodriver/releases) page.
+1. Go to the [gecko driver](https://github.com/mozilla/geckodriver/releases) page.
 1. Click on the Downloads link and download the latest stable version of the gecko driver.
 1. Copy the driver to the vendor folder.
 1. Rename the driver file to geckodriver.exe
