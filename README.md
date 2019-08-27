@@ -20,4 +20,7 @@ To run Selenium using Firefox install the latest stable version of the gecko dri
 To run tests locally using Chrome issue the following command:
  - mvn -p nogrid, chrome, devhost, test
 
+To run tests locally using Firefox issue the following command:
+ - mvn -p nogrid, firefox, devhost, test
+
   
