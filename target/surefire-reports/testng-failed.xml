@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Tests]">
-  <test thread-count="5" verbose="0" name="Test1(failed)">
+  <test thread-count="5" verbose="0" name="Test PHP Travels(failed)">
     <classes>
       <class name="com.phptravels.PhpTravelsTest">
         <methods>
@@ -10,11 +10,11 @@
           <include name="initWebDriver"/>
           <include name="BeforeClass"/>
           <include name="tearDown"/>
-          <include name="testHomePageFrontEnd"/>
+          <include name="testSelectingHotels" invocation-numbers="0 1"/>
           <include name="quitDriver"/>
           <include name="initPageObjects"/>
         </methods>
       </class> <!-- com.phptravels.PhpTravelsTest -->
     </classes>
-  </test> <!-- Test1(failed) -->
+  </test> <!-- Test PHP Travels(failed) -->
 </suite> <!-- Failed suite [Tests] -->

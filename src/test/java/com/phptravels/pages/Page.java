@@ -53,7 +53,7 @@ public abstract class Page {
       webElement.click();
       
   }
-  
+ 
   protected void WaitForElement(By locator)
   {
       wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -63,6 +63,7 @@ public abstract class Page {
   {
      WebElement webElement ;
       webElement = Find(locator);
+      webElement.clear();
       webElement.sendKeys(textEntry);
   }
  

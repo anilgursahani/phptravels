@@ -1,61 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="6" total="9" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Tests" duration-ms="16909" started-at="2019-08-27T05:26:10Z" finished-at="2019-08-27T05:26:27Z">
+  <suite name="Tests" duration-ms="50075" started-at="2019-09-03T03:56:23Z" finished-at="2019-09-03T03:57:13Z">
     <groups>
     </groups>
-    <test name="Test1" duration-ms="16909" started-at="2019-08-27T05:26:10Z" finished-at="2019-08-27T05:26:27Z">
+    <test name="Test PHP Travels" duration-ms="50075" started-at="2019-09-03T03:56:23Z" finished-at="2019-09-03T03:57:13Z">
       <class name="com.phptravels.PhpTravelsTest">
-        <test-method status="PASS" signature="initTestSuite()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="initTestSuite" is-config="true" duration-ms="20" started-at="2019-08-27T05:26:10Z" finished-at="2019-08-27T05:26:10Z">
+        <test-method status="PASS" signature="initTestSuite()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initTestSuite" is-config="true" duration-ms="15" started-at="2019-09-03T03:56:23Z" finished-at="2019-09-03T03:56:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initTestSuite -->
-        <test-method status="PASS" signature="BeforeClass()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="BeforeClass" is-config="true" duration-ms="106" started-at="2019-08-27T05:26:10Z" finished-at="2019-08-27T05:26:10Z">
+        <test-method status="PASS" signature="BeforeClass()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="BeforeClass" is-config="true" duration-ms="101" started-at="2019-09-03T03:56:23Z" finished-at="2019-09-03T03:56:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeClass -->
-        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="initWebDriver" is-config="true" duration-ms="2013" started-at="2019-08-27T05:26:10Z" finished-at="2019-08-27T05:26:12Z">
+        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initWebDriver" is-config="true" duration-ms="2004" started-at="2019-09-03T03:56:23Z" finished-at="2019-09-03T03:56:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initWebDriver -->
-        <test-method status="PASS" signature="initPageObjects()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="initPageObjects" is-config="true" duration-ms="2542" started-at="2019-08-27T05:26:12Z" finished-at="2019-08-27T05:26:15Z">
+        <test-method status="PASS" signature="initPageObjects()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initPageObjects" is-config="true" duration-ms="3128" started-at="2019-09-03T03:56:25Z" finished-at="2019-09-03T03:56:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPageObjects -->
-        <test-method status="PASS" signature="testHomePageHasAHeader()[pri:1, instance:com.phptravels.PhpTravelsTest@79be0360]" name="testHomePageHasAHeader" duration-ms="51" started-at="2019-08-27T05:26:15Z" finished-at="2019-08-27T05:26:15Z">
+        <test-method status="PASS" signature="testSelectingCars()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="testSelectingCars" duration-ms="11373" started-at="2019-09-03T03:56:28Z" description="Test selecting Cars" finished-at="2019-09-03T03:56:39Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHomePageHasAHeader -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="quitDriver" is-config="true" duration-ms="89" started-at="2019-08-27T05:26:15Z" finished-at="2019-08-27T05:26:15Z">
+        </test-method> <!-- testSelectingCars -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="quitDriver" is-config="true" duration-ms="83" started-at="2019-09-03T03:56:39Z" finished-at="2019-09-03T03:56:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="initWebDriver" is-config="true" duration-ms="1655" started-at="2019-08-27T05:26:15Z" finished-at="2019-08-27T05:26:17Z">
+        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initWebDriver" is-config="true" duration-ms="1633" started-at="2019-09-03T03:56:39Z" finished-at="2019-09-03T03:56:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initWebDriver -->
-        <test-method status="PASS" signature="initPageObjects()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="initPageObjects" is-config="true" duration-ms="2362" started-at="2019-08-27T05:26:17Z" finished-at="2019-08-27T05:26:19Z">
+        <test-method status="PASS" signature="initPageObjects()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initPageObjects" is-config="true" duration-ms="2402" started-at="2019-09-03T03:56:41Z" finished-at="2019-09-03T03:56:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initPageObjects -->
-        <test-method status="PASS" signature="testHomePageFrontEnd()[pri:3, instance:com.phptravels.PhpTravelsTest@79be0360]" name="testHomePageFrontEnd" duration-ms="7292" started-at="2019-08-27T05:26:19Z" finished-at="2019-08-27T05:26:26Z">
+        <test-method status="PASS" signature="testSelectingHotels(java.lang.String)[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="testSelectingHotels" duration-ms="12208" started-at="2019-09-03T03:56:43Z" description="Select a hotel" data-provider="HotelsAndCities" finished-at="2019-09-03T03:56:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Marriot]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testHomePageFrontEnd -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="quitDriver" is-config="true" duration-ms="134" started-at="2019-08-27T05:26:26Z" finished-at="2019-08-27T05:26:27Z">
+        </test-method> <!-- testSelectingHotels -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="quitDriver" is-config="true" duration-ms="83" started-at="2019-09-03T03:56:56Z" finished-at="2019-09-03T03:56:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="createAndStopService()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="createAndStopService" is-config="true" duration-ms="644" started-at="2019-08-27T05:26:27Z" finished-at="2019-08-27T05:26:27Z">
+        <test-method status="PASS" signature="initWebDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initWebDriver" is-config="true" duration-ms="1703" started-at="2019-09-03T03:56:56Z" finished-at="2019-09-03T03:56:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initWebDriver -->
+        <test-method status="PASS" signature="initPageObjects()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="initPageObjects" is-config="true" duration-ms="2265" started-at="2019-09-03T03:56:57Z" finished-at="2019-09-03T03:57:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initPageObjects -->
+        <test-method status="PASS" signature="testSelectingHotels(java.lang.String)[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="testSelectingHotels" duration-ms="12289" started-at="2019-09-03T03:57:00Z" description="Select a hotel" data-provider="HotelsAndCities" finished-at="2019-09-03T03:57:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Hilton]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSelectingHotels -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="quitDriver" is-config="true" duration-ms="93" started-at="2019-09-03T03:57:12Z" finished-at="2019-09-03T03:57:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method status="PASS" signature="createAndStopService()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="createAndStopService" is-config="true" duration-ms="692" started-at="2019-09-03T03:57:12Z" finished-at="2019-09-03T03:57:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createAndStopService -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.phptravels.PhpTravelsTest@79be0360]" name="tearDown" is-config="true" duration-ms="5" started-at="2019-08-27T05:26:27Z" finished-at="2019-08-27T05:26:27Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.phptravels.PhpTravelsTest@1efed156]" name="tearDown" is-config="true" duration-ms="9" started-at="2019-09-03T03:57:13Z" finished-at="2019-09-03T03:57:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.phptravels.PhpTravelsTest -->
-    </test> <!-- Test1 -->
+    </test> <!-- Test PHP Travels -->
   </suite> <!-- Tests -->
 </testng-results>

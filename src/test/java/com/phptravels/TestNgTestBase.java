@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
@@ -110,6 +111,7 @@ public void BeforeClass ()
      chromeOptions.addArguments("start-maximized");
     // driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
      driver = new RemoteWebDriver(service.getUrl(), chromeOptions);
+     
       } 
       else if (browserName.equalsIgnoreCase("firefox"))
       {

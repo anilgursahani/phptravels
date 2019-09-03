@@ -10,41 +10,57 @@ import org.testng.annotations.Test;
 
 import com.phptravels.pages.HomePage;
 import com.phptravels.pages.JourneyBeginsHerePage ;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+
 
 public class PhpTravelsTest extends TestNgTestBase {
 
   private HomePage homepage;
   private JourneyBeginsHerePage journeypage ;
   
-  @DataProvider(name = "LoginCredentials")
-  public Object[][] createData1()
+@DataProvider(name = "LoginCredentials")
+  public Object[][] createData()
   {
       return new Object[][] {
           {"user@phptravels.com", "demouser"},
          
       };
   }
+  
+  @DataProvider(name = "HotelsAndCities")
+ 
+      public Object[][]createHotelsAndCities()
+      {
+          return new Object[][]{
+              {"Marriot"},
+              {"Hilton"},
+          };
+      }
+  
 
 @BeforeMethod
 public void initPageObjects()
 {
-     driver.get(baseUrl);
+     
+     System.out.println("Driver is " + driver);
+    driver.get(baseUrl);
     homepage = PageFactory.initElements(driver, HomePage.class);
+    
 }
 
  
-  @Test(priority = 1)
-  public void testHomePageHasAHeader() {
+  @Test(description="Verify home page")
+  public void verifyHomePage() {
    
     String carouselControlsText ;
     carouselControlsText = homepage.carouselControls.getText();
     Assert.assertNotNull(carouselControlsText, "Got null for the carousel controls");
   }
   
-  //@Test(priority=2,  dataProvider = "LoginCredentials")
+@Test(description = "Test login with no captcha",  dataProvider = "LoginCredentials")
  
   public void testLoginNoCaptcha(String username, String password)
   {
@@ -55,14 +71,14 @@ public void initPageObjects()
       Assert.assertEquals(captchaText, expectedCaptchaText, "Did not get the expected captcha");
   }
   
- // @Test(priority=3, dataProvider="LoginCredentials")
+ @Test(description = "Test login with valid username and password", dataProvider="LoginCredentials")
   
   public void testLoginValidUsernameValidPassword(String username, String password)
   {
       homepage.Login(username, password, true);
   }
   
- @Test (priority=3)
+ @Test (description = "Test front end of the home page")
  public void testHomePageFrontEnd()
  {
      journeypage = homepage.navigateToHomePageFrontEnd();
@@ -75,14 +91,64 @@ public void initPageObjects()
      Verify.verify(titlesMatch, "Page title does not match expected title", (Object) "PHPTRAVELS | Travel Technology Partner");
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("HOTELS"));
+ }
+ 
+ @Test(description = "Test selecting Flight link")
+ public void testSelectingFlights()
+ {
+     
+     String titleOfActiveElement; 
+      journeypage = homepage.navigateToHomePageFrontEnd();
      journeypage.selectFlights();
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
-    
      Verify.verify(titleOfActiveElement.equals("FLIGHTS"));
+ }
+ 
+ @Test(description="Test selecting Tour Link")
+ public void testSelectingTours()
+ {
+     String titleOfActiveElement ;
+     journeypage = homepage.navigateToHomePageFrontEnd();
      journeypage.selectTours();
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("TOURS"));
+ }
+ 
+ @Test(description="Test selecting Cars")
+ public void testSelectingCars()
+ {
+     String titleOfActiveElement ;
+     journeypage = homepage.navigateToHomePageFrontEnd();
+     journeypage.selectCars();
+     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     Verify.verify(titleOfActiveElement.equals("CARS"));
+      try {
+        Thread.sleep(5000);
+     }
+     catch(java.lang.InterruptedException ie)
+     {
+         
+     }
     
+ }    
+  
+ 
+ @Test(description="Select a hotel", dataProvider="HotelsAndCities")
+ public void testSelectingHotels(String hotelOrCity)
+ {
+     String titleOfActiveElement;
+     journeypage = homepage.navigateToHomePageFrontEnd();
+     journeypage.selectHotel(hotelOrCity);
+     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     Verify.verify(titleOfActiveElement.equals("HOTELS"));
+      try {
+        Thread.sleep(5000);
+     }
+     catch(java.lang.InterruptedException ie)
+     {
+         
+     }
+ }
  }
   
  
@@ -91,4 +157,3 @@ public void initPageObjects()
  
  
   
-}

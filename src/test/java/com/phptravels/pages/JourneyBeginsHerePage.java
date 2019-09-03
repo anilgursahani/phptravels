@@ -16,11 +16,18 @@ import org.openqa.selenium.WebElement;
 public class JourneyBeginsHerePage extends HomePage
 {
     private final By activeElementLocator = By.cssSelector("li.text-center.active");
+    private final By hotelsElementLocator = By.cssSelector("i.fa.fa-hotel");
     private final By flightsElementLocator = By.cssSelector("i.fa.fa-plane");
-    private final By toursElementSelector = By.cssSelector("i.fa.fa-suitcase");
-    private final By roundTripRadioButtonSelector = By.cssSelector("label[for='round']");
-    private final By guestsSelector = By.cssSelector("select[id='adults']");
-    public JourneyBeginsHerePage(WebDriver wehDriver)
+    private final By toursElementLocator= By.cssSelector("i.fa.fa-suitcase");
+    private final By carRentalLocator = By.cssSelector("i.fa.fa-car");
+    private final By roundTripRadioButtonLocator = By.cssSelector("label[for='round']");
+    private final By guestsLocator = By.cssSelector("select[id='adults']");
+    private final By hotelLink = By.cssSelector(" #s2id_location > a > span.select2-chosen");
+    // s2id_location > a > span.select2-chosen
+    //private final By chooseAHotelLocator = By.cssSelector("#select2-drop > div > input");
+    private final By chooseAHotelLocator = By.id("location");
+    
+    public JourneyBeginsHerePage(WebDriver wehDriver)   
     {
         super(wehDriver);
     }
@@ -37,17 +44,36 @@ public class JourneyBeginsHerePage extends HomePage
      WebElement flightsElement ;
      flightsElement = Find(flightsElementLocator);
      flightsElement.click();
-     WaitForElement(roundTripRadioButtonSelector);
+     WaitForElement(roundTripRadioButtonLocator);
  }
  
  public void selectTours()
  {
      WebElement toursElement ;
-     toursElement = Find(toursElementSelector);
+     toursElement = Find(toursElementLocator);
      toursElement.click();
-     WaitForElement(guestsSelector);
-     
+     WaitForElement(guestsLocator);
     
+ }
+ 
+ public void selectCars()
+ {
+     WebElement carRentalElement ;
+     carRentalElement = Find(carRentalLocator);
+     carRentalElement.click();
+     
+ }
+ 
+ public void selectHotel(String cityOrHotel) 
+ {
+    Click (hotelLink);
+     //WebElement hotelElement ;
+    // hotelElement = Find(hotelsElementLocator);
+    // hotelElement.click();
+    
+     Type(chooseAHotelLocator, cityOrHotel);
+    
+     
  }
 }
     

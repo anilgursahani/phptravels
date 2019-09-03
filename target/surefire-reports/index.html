@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +102,17 @@
                     <div class="method-list-content passed suite-Tests">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Tests" title="com.phptravels.PhpTravelsTest" hash-for-method="testHomePageFrontEnd">testHomePageFrontEnd</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Tests" title="com.phptravels.PhpTravelsTest" hash-for-method="testSelectingCars">testSelectingCars</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Tests" title="com.phptravels.PhpTravelsTest" hash-for-method="testHomePageHasAHeader">testHomePageHasAHeader</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Tests" title="com.phptravels.PhpTravelsTest" hash-for-method="testSelectingHotels(Hilton)">testSelectingHotels(Hilton)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Tests" title="com.phptravels.PhpTravelsTest" hash-for-method="testSelectingHotels(Marriot)">testSelectingHotels(Marriot)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Tests -->
@@ -130,16 +135,31 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testHomePageFrontEnd">
-                  </a> <!-- testHomePageFrontEnd -->
-                  <span class="method-name">testHomePageFrontEnd</span>
+                  <a name="testSelectingCars">
+                  </a> <!-- testSelectingCars -->
+                  <span class="method-name">testSelectingCars</span>
+                  <em>
+(Test selecting Cars)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testHomePageHasAHeader">
-                  </a> <!-- testHomePageHasAHeader -->
-                  <span class="method-name">testHomePageHasAHeader</span>
+                  <a name="testSelectingHotels(Hilton)">
+                  </a> <!-- testSelectingHotels(Hilton) -->
+                  <span class="method-name">testSelectingHotels</span>
+                  <span class="parameters">(Hilton)</span>
+                  <em>
+(Select a hotel)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSelectingHotels(Marriot)">
+                  </a> <!-- testSelectingHotels(Marriot) -->
+                  <span class="method-name">testSelectingHotels</span>
+                  <span class="parameters">(Marriot)</span>
+                  <em>
+(Select a hotel)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -154,11 +174,16 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;Tests&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;Test1&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; verbose=&quot;0&quot; name=&quot;Test PHP Travels&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.phptravels.PhpTravelsTest&quot;/&gt;
+      &lt;class name=&quot;com.phptravels.PhpTravelsTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;testSelectingCars&quot;/&gt;
+          &lt;include name=&quot;testSelectingHotels&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.phptravels.PhpTravelsTest --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test1 --&gt;
+  &lt;/test&gt; &lt;!-- Test PHP Travels --&gt;
 &lt;/suite&gt; &lt;!-- Tests --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -170,7 +195,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test1 (1 class)</span>
+                <span class="test-name">Test PHP Travels (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -196,20 +221,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testHomePageFrontEnd')
+data.setCell(0, 1, 'testSelectingHotels')
 data.setCell(0, 2, 'com.phptravels.PhpTravelsTest')
-data.setCell(0, 3, 7292);
+data.setCell(0, 3, 12289);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testHomePageHasAHeader')
+data.setCell(1, 1, 'testSelectingHotels')
 data.setCell(1, 2, 'com.phptravels.PhpTravelsTest')
-data.setCell(1, 3, 51);
+data.setCell(1, 3, 12208);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testSelectingCars')
+data.setCell(2, 2, 'com.phptravels.PhpTravelsTest')
+data.setCell(2, 3, 11373);
 window.suiteTableData['Tests']= { tableData: data, tableDiv: 'times-div-Tests'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 seconds</span>
+              <span class="suite-total-time">Total running time: 35 seconds</span>
               <div id="times-div-Tests">
               </div> <!-- times-div-Tests -->
             </div> <!-- times-div -->
@@ -224,9 +253,26 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Tests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.phptravels.PhpTravelsTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testLoginNoCaptcha</span>
+                <br/>
+                <span class="ignored-method-name">testHomePageFrontEnd</span>
+                <br/>
+                <span class="ignored-method-name">testSelectingFlights</span>
+                <br/>
+                <span class="ignored-method-name">testSelectingTours</span>
+                <br/>
+                <span class="ignored-method-name">verifyHomePage</span>
+                <br/>
+                <span class="ignored-method-name">testLoginValidUsernameValidPassword</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Tests" class="panel">
@@ -242,47 +288,63 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">BeforeClass</span>
-                <span class="method-start">26 ms</span>
+                <span class="method-start">15 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">initWebDriver</span>
-                <span class="method-start">141 ms</span>
+                <span class="method-start">124 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPageObjects</span>
-                <span class="method-start">2154 ms</span>
+                <span class="method-start">2128 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testHomePageHasAHeader</span>
-                <span class="method-start">4696 ms</span>
+                <span class="method-name">testSelectingCars</span>
+                <span class="method-start">5256 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">quitDriver</span>
-                <span class="method-start">4748 ms</span>
+                <span class="method-start">16630 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">initWebDriver</span>
-                <span class="method-start">4841 ms</span>
+                <span class="method-start">16719 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">initPageObjects</span>
-                <span class="method-start">6496 ms</span>
+                <span class="method-start">18352 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testHomePageFrontEnd</span>
-                <span class="method-start">8858 ms</span>
+                <span class="method-name">testSelectingHotels(Marriot)</span>
+                <span class="method-start">20754 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">quitDriver</span>
-                <span class="method-start">16151 ms</span>
+                <span class="method-start">32962 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">initWebDriver</span>
+                <span class="method-start">33045 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">initPageObjects</span>
+                <span class="method-start">34748 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testSelectingHotels(Hilton)</span>
+                <span class="method-start">37014 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">quitDriver</span>
+                <span class="method-start">49303 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">createAndStopService</span>
-                <span class="method-start">16285 ms</span>
+                <span class="method-start">49396 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">16945 ms</span>
+                <span class="method-start">50131 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
