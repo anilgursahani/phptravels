@@ -1,4 +1,5 @@
-:vendor
+/vendor/*
 target/
 target/*
 *.lnk
+vendor/*
