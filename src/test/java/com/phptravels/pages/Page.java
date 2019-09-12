@@ -25,7 +25,7 @@ public abstract class Page {
    */
   public Page(WebDriver driver) {
     this.driver = driver;
-    wait = new WebDriverWait(driver,  5);
+    wait = new WebDriverWait(driver,  10);
   }
 
   public String getTitle() {
@@ -65,6 +65,26 @@ public abstract class Page {
       webElement = Find(locator);
       webElement.clear();
       webElement.sendKeys(textEntry);
+  }
+  protected String InnerHTML(By locator)
+  {
+      String innerHTML  ;
+      WebElement webElement;
+      webElement = Find(locator);
+     
+    //  wait.until(ExpectedConditions.textToBePresentInElement(webElement, textLookingFor));
+      innerHTML = webElement.getAttribute("innerHTML");
+      return innerHTML ;
+  }
+  protected String Text(By locator)
+  {
+      String elementText ;
+      WebElement webElement;
+      webElement = Find(locator);
+     
+   //   wait.until(ExpectedConditions.textToBePresentInElement(webElement, textLookingFor));
+      elementText = webElement.getText();
+      return elementText ;
   }
  
  /**

@@ -35,8 +35,8 @@ public class PhpTravelsTest extends TestNgTestBase {
       public Object[][]createHotelsAndCities()
       {
           return new Object[][]{
-              {"Marriot"},
-              {"Hilton"},
+              {"Marriot","Islamabad Marriott Hotel, Islamabad"},
+              {"Hilton", "Hilton Head, United States"},
           };
       }
   
@@ -134,20 +134,19 @@ public void initPageObjects()
   
  
  @Test(description="Select a hotel", dataProvider="HotelsAndCities")
- public void testSelectingHotels(String hotelOrCity)
+ public void testSelectingHotels(String hotelOrCity, String expectedHotelOrCity)
  {
      String titleOfActiveElement;
+     String hotelChosen ;
      journeypage = homepage.navigateToHomePageFrontEnd();
      journeypage.selectHotel(hotelOrCity);
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("HOTELS"));
-      try {
-        Thread.sleep(5000);
-     }
-     catch(java.lang.InterruptedException ie)
-     {
-         
-     }
+     hotelChosen = journeypage.getHotelChosen();
+     
+     Reporter.log("Hotel chosen was " + hotelChosen);
+     Verify.verify(hotelChosen.equals(expectedHotelOrCity));
+     
  }
  }
   

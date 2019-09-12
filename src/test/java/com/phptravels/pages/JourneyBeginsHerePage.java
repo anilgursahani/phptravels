@@ -22,10 +22,18 @@ public class JourneyBeginsHerePage extends HomePage
     private final By carRentalLocator = By.cssSelector("i.fa.fa-car");
     private final By roundTripRadioButtonLocator = By.cssSelector("label[for='round']");
     private final By guestsLocator = By.cssSelector("select[id='adults']");
-    private final By hotelLink = By.cssSelector(" #s2id_location > a > span.select2-chosen");
+    private final By hotelTextLink = By.cssSelector(".hotelsearch.locationlistthhotels");
+    //private final By hotelTextLink = By.cssSelector("span.select2-chosen");
+    //private final By hotelLink = By.cssSelector(" #s2id_location > a > span.select2-chosen");
     // s2id_location > a > span.select2-chosen
     //private final By chooseAHotelLocator = By.cssSelector("#select2-drop > div > input");
     private final By chooseAHotelLocator = By.id("location");
+    // private final By hotelChosenLocator = By.cssSelector("#s2id_location span.select2-chosen");
+  //  private final By hotelChosenLocator = By.cssSelector("span.select2-match");
+ //   private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable.select2-highlighted div.select2-result-label");
+   
+private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable.select2-highlighted");
+    
     
     public JourneyBeginsHerePage(WebDriver wehDriver)   
     {
@@ -66,14 +74,26 @@ public class JourneyBeginsHerePage extends HomePage
  
  public void selectHotel(String cityOrHotel) 
  {
-    Click (hotelLink);
+    String returnedText ;
+    String expectedText = cityOrHotel ;
+     Click (hotelTextLink);
      //WebElement hotelElement ;
     // hotelElement = Find(hotelsElementLocator);
     // hotelElement.click();
     
      Type(chooseAHotelLocator, cityOrHotel);
+     
+     
+    
     
      
+ }
+ 
+ public String getHotelChosen()
+ {
+     String hotelChosen ;
+     hotelChosen = Text(hotelChosenLocator);
+     return hotelChosen ;
  }
 }
     
