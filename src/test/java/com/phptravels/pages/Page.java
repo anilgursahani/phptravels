@@ -1,5 +1,7 @@
 package com.phptravels.pages;
 
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Set;
 import static org.hamcrest.Matchers.equalTo;
 import org.openqa.selenium.By;
@@ -9,6 +11,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import sun.security.x509.PKIXExtensions;
+ import org.openqa.selenium.Keys ;
 
 /**
  * Abstract class representation of a Page in the UI. Page object pattern
@@ -34,10 +38,51 @@ public abstract class Page {
   
   public WebElement Find(By locator)
   {
+    
       WebElement webElement ;
       wait.until(ExpectedConditions.presenceOfElementLocated(locator));
       webElement = driver.findElement(locator);
       return webElement ;
+  }
+  public void SelectElementWithTextFromPopup(By locator, String textOfElementToChoose)
+  {
+      
+  }
+  public void SelectElementFromPopup(By locator, String textOfElementToChoose)
+  {
+      List<WebElement> webElements ;
+      ListIterator<WebElement> listIterator ;
+      wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+      webElements = driver.findElements(locator);
+      WebElement webElement ;
+      int numElements ;
+      listIterator = webElements.listIterator();
+      numElements = 0;
+      while (listIterator.hasNext())
+      {
+          String text ;
+          numElements++ ;
+          webElement = listIterator.next();
+          System.out.println("Web element is " + webElement);
+          text = webElement.getText();
+          System.out.println("Text for element is" + text);
+          int index ;
+          index = text.indexOf(textOfElementToChoose);
+          if (index >= 0)
+    //      if (text.equalsIgnoreCase(textOfElementToChoose))
+          {
+              webElement.click();
+              break ;
+          }
+          
+      }
+      
+     
+      
+      
+     
+    
+      
   }
   
   protected void Click(WebElement we)
@@ -59,12 +104,45 @@ public abstract class Page {
       wait.until(ExpectedConditions.presenceOfElementLocated(locator));
   }
   
+  protected void WaitForElementTextToBecomeInvisible(By locator, String text)
+  {
+      wait.until(ExpectedConditions.invisibilityOfElementWithText(locator, text));
+  }
+  
+  protected String GetText(By locator)
+  {
+      WebElement webElement ;
+      webElement = Find(locator);
+      return webElement.getText();
+      
+  }
+  
+ protected void SendReturn(By locator)
+ {
+     WebElement webElement ;
+      webElement = Find(locator);
+      webElement.sendKeys(Keys.RETURN);
+ }
+  
+  protected void WaitForTextToBe(By locator, String expectedText)
+  {
+      wait.until(ExpectedConditions.textToBe(locator, expectedText));
+  }
+  
   protected void Type(By locator, String textEntry)
   {
      WebElement webElement ;
       webElement = Find(locator);
       webElement.clear();
       webElement.sendKeys(textEntry);
+  }
+  
+  protected void TypeWithReturn(By locator, String textEntry)
+  {
+      WebElement webElement ;
+      webElement = Find(locator);
+      webElement.clear();
+      webElement.sendKeys(textEntry + Keys.RETURN);
   }
   protected String InnerHTML(By locator)
   {

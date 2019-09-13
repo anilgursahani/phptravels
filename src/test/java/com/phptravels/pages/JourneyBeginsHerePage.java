@@ -24,15 +24,28 @@ public class JourneyBeginsHerePage extends HomePage
     private final By guestsLocator = By.cssSelector("select[id='adults']");
     private final By hotelTextLink = By.cssSelector(".hotelsearch.locationlistthhotels");
     //private final By hotelTextLink = By.cssSelector("span.select2-chosen");
-    //private final By hotelLink = By.cssSelector(" #s2id_location > a > span.select2-chosen");
+    private final By hotelLink = By.cssSelector(" #s2id_location > a > span.select2-chosen");
     // s2id_location > a > span.select2-chosen
     //private final By chooseAHotelLocator = By.cssSelector("#select2-drop > div > input");
     private final By chooseAHotelLocator = By.id("location");
+
     // private final By hotelChosenLocator = By.cssSelector("#s2id_location span.select2-chosen");
-  //  private final By hotelChosenLocator = By.cssSelector("span.select2-match");
- //   private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable.select2-highlighted div.select2-result-label");
+
    
-private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable.select2-highlighted");
+//private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable.select2-highlighted");
+    private final By hotelChosenLocator = By.cssSelector("#s2id_location > .select2-choice > span.select2-chosen");
+
+    private final By hotelElementsSelector = By.cssSelector("div.select2-result-label");
+    private final By hotelSelectedSelector = By.cssSelector("#select2-drop > ul > li > div");
+    private final By nameOfHotelSelectedSelector = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable div.select2-result-label");
+    private final By popupSelector = By.id("select2-drop");
+    private final By multiElementsPopupSelector = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable > div.select2-result-label");
+    private final By nameOfHotelSelectedFromMultiPopup = By.cssSelector("#s2id_location > .select2-choice > span.select2-chosen");
+    
+   // div#s2id_location.select2-choice.select2-chosen
+    
+   
+
     
     
     public JourneyBeginsHerePage(WebDriver wehDriver)   
@@ -74,24 +87,37 @@ private final By hotelChosenLocator = By.cssSelector("li.select2-results-dept-1.
  
  public void selectHotel(String cityOrHotel) 
  {
-    String returnedText ;
-    String expectedText = cityOrHotel ;
-     Click (hotelTextLink);
-     //WebElement hotelElement ;
-    // hotelElement = Find(hotelsElementLocator);
-    // hotelElement.click();
-    
+
+    String hotelSelectedText = "Hotels";
+   
+     Click (hotelLink);
+     
      Type(chooseAHotelLocator, cityOrHotel);
+     WaitForElement(popupSelector);
      
+     WaitForElementTextToBecomeInvisible(popupSelector, "Searching...");
      
-    
-    
+     SelectElementFromPopup(multiElementsPopupSelector, cityOrHotel);
+ 
+ }
+ 
+ public void selectHotelFromMenu(String textToEnter, String cityToChoose)
+ {
+     String returnedHotel ;
+     Click(hotelLink);
+     Type(chooseAHotelLocator, textToEnter);
+     WaitForElement(popupSelector);
+     
+     WaitForElementTextToBecomeInvisible(popupSelector, "Searching...");
+
+     SelectElementFromPopup(multiElementsPopupSelector, cityToChoose);
      
  }
  
- public String getHotelChosen()
+ public String getHotelChosenFromPopup()
  {
      String hotelChosen ;
+     WaitForElementTextToBecomeInvisible(popupSelector, "Searching...");
      hotelChosen = Text(hotelChosenLocator);
      return hotelChosen ;
  }
