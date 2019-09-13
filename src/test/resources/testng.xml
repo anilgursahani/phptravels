@@ -9,8 +9,9 @@
                <include name="testHomePageFrontEnd"/>
               <include name="testSelectingFlights"/>
               <include name="testSelectingTours"/-->
-              <include name="testSelectingCars"/>
-              <include name="testSelectingHotels"/>
+              <include name="testCarsLink"/>
+              <include name="testHotelsLink"/>
+              <include name="testSelectHotelFromMenu"/>
          </methods>
       </class>
     </classes>

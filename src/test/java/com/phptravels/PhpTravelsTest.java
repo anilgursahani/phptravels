@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import com.phptravels.pages.HomePage;
 import com.phptravels.pages.JourneyBeginsHerePage ;
+import java.util.ArrayList;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -35,10 +36,26 @@ public class PhpTravelsTest extends TestNgTestBase {
       public Object[][]createHotelsAndCities()
       {
           return new Object[][]{
-              {"Marriot"},
-              {"Hilton"},
+              {"Marriot", "Islamabad Marriott Hotel, Islamabad"},
+              {"Hilton", "Hilton Head, United States"},
           };
       }
+      
+      
+      @DataProvider(name="selectFromMenuOfHotelsAndCitiesDP")
+      public Object[][] hotelsAndCities()
+      {
+          
+          String[]  marrCities = {"Gamarra, Colombia", "Marrakech, Morocco", "Marree, Australia", "Marromeu, Mozambique"};
+           return new Object[][]{
+    
+     
+              {"Marr", marrCities, "Marree, Australia"},
+              
+               };
+      }
+                
+      
   
 
 @BeforeMethod
@@ -114,8 +131,8 @@ public void initPageObjects()
      Verify.verify(titleOfActiveElement.equals("TOURS"));
  }
  
- @Test(description="Test selecting Cars")
- public void testSelectingCars()
+ @Test(description="Test CarsLink")
+ public void testCarsLink()
  {
      String titleOfActiveElement ;
      journeypage = homepage.navigateToHomePageFrontEnd();
@@ -133,12 +150,14 @@ public void initPageObjects()
  }    
   
  
- @Test(description="Select a hotel", dataProvider="HotelsAndCities")
- public void testSelectingHotels(String hotelOrCity)
+ @Test(description="Test Hotel Link", dataProvider="HotelsAndCities")
+ public void testHotelsLink(String hotelOrCity, String expectedHotelOrCity)
  {
      String titleOfActiveElement;
+     String hotelSelected ;
      journeypage = homepage.navigateToHomePageFrontEnd();
-     journeypage.selectHotel(hotelOrCity);
+     hotelSelected = journeypage.selectHotel(hotelOrCity);
+    
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("HOTELS"));
       try {
@@ -148,8 +167,24 @@ public void initPageObjects()
      {
          
      }
+      Assert.assertEquals(hotelSelected, expectedHotelOrCity,"Hotel selected does not match expected hotel");
+      
  }
+ 
+ @Test(description="Let user select from menu of hotels and cities", dataProvider="selectFromMenuOfHotelsAndCitiesDP")
+ 
+ public void testSelectHotelFromMenu(String textToEnter, String[] cityMenu, String cityToChoose)
+ {
+      String titleOfActiveElement;
+     String hotelSelected ;
+     journeypage = homepage.navigateToHomePageFrontEnd();
+     hotelSelected = journeypage.selectHotelFromMenu(textToEnter, cityToChoose);
+     
  }
+}
+ 
+      
+ 
   
  
 

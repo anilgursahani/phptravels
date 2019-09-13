@@ -26,6 +26,17 @@ public class JourneyBeginsHerePage extends HomePage
     // s2id_location > a > span.select2-chosen
     //private final By chooseAHotelLocator = By.cssSelector("#select2-drop > div > input");
     private final By chooseAHotelLocator = By.id("location");
+    private final By hotelElementsSelector = By.cssSelector("div.select2-result-label");
+    private final By hotelSelectedSelector = By.cssSelector("#select2-drop > ul > li > div");
+    private final By nameOfHotelSelectedSelector = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable div.select2-result-label");
+    private final By popupSelector = By.id("select2-drop");
+    private final By multiElementsPopupSelector = By.cssSelector("li.select2-results-dept-1.select2-result.select2-result-selectable > div.select2-result-label");
+    private final By nameOfHotelSelectedFromMultiPopup = By.cssSelector("#s2id_location > .select2-choice > span.select2-chosen");
+    
+   // div#s2id_location.select2-choice.select2-chosen
+    
+   
+    
     
     public JourneyBeginsHerePage(WebDriver wehDriver)   
     {
@@ -64,16 +75,34 @@ public class JourneyBeginsHerePage extends HomePage
      
  }
  
- public void selectHotel(String cityOrHotel) 
+ public String selectHotel(String cityOrHotel) 
  {
-    Click (hotelLink);
-     //WebElement hotelElement ;
-    // hotelElement = Find(hotelsElementLocator);
-    // hotelElement.click();
-    
-     Type(chooseAHotelLocator, cityOrHotel);
-    
+    String hotelSelectedText = "Hotels";
+    String returnedText = "Not implemented yet";
+     Click (hotelLink);
      
+     Type(chooseAHotelLocator, cityOrHotel);
+     WaitForElement(popupSelector);
+ 
+    returnedText = GetText(nameOfHotelSelectedSelector );
+     return returnedText ;
+     
+   
+     
+ }
+ 
+ public String selectHotelFromMenu(String textToEnter, String cityToChoose)
+ {
+     String returnedHotel ;
+     Click(hotelLink);
+     Type(chooseAHotelLocator, textToEnter);
+     WaitForElement(popupSelector);
+     
+     WaitForElementTextToBecomeInvisible(popupSelector, "Searching...");
+     
+     SelectElementFromPopup(multiElementsPopupSelector, cityToChoose);
+     returnedHotel = GetText( nameOfHotelSelectedFromMultiPopup);
+     return returnedHotel ;
  }
 }
     
