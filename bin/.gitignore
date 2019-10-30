@@ -1,0 +1,5 @@
+/vendor/*
+target/
+target/*
+*.lnk
+vendor/*Best Submission.url

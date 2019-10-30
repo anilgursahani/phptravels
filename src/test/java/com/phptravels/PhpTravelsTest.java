@@ -70,6 +70,7 @@ public void initPageObjects()
     driver.get(baseUrl);
     homepage = PageFactory.initElements(driver, HomePage.class);
     
+    
 }
 
  
@@ -111,8 +112,8 @@ public void initPageObjects()
      
      Verify.verify(titlesMatch, "Page title does not match expected title", (Object) "PHPTRAVELS | Travel Technology Partner");
      titleOfActiveElement = journeypage.getTitleOfActiveElement();
-     Verify.verify(titleOfActiveElement.equals("HOTELS"));
- }
+     Verify.verify(titleOfActiveElement.contains("HOTELS"));
+ }    
  
  @Test(description = "Test selecting Flight link")
  public void testSelectingFlights()

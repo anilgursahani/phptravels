@@ -6,12 +6,12 @@
       <class name="com.phptravels.PhpTravelsTest">
           <methods>
               <include name="verifyHomePage"/>
-              <include name="testHomePageFrontEnd"/>
-              <!--include name="testSelectingFlights"/>
+               <include name="testLoginValidUsernameValidPassword"/>
+              <include name="testSelectingFlights"/>
               <include name="testSelectingTours"/>
               <include name="testCarsLink"/>
               <include name="testHotelsLink"/>
-              <include name="testSelectHotelFromMenu"/-->
+              <include name="testSelectHotelFromMenu"/>
          </methods>
       </class>
     </classes>

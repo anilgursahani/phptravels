@@ -1,5 +1,8 @@
 package com.phptravels.pages;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeoutException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +11,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Reporter;
+import org.openqa.selenium.WebDriver.TargetLocator;
 
 /**
  * Sample page
@@ -17,6 +21,7 @@ public class HomePage extends Page {
   @FindBy(how = How.TAG_NAME, using = "h1")
   @CacheLookup
   public WebElement header;
+  TargetLocator targetLocator ;
   
   @FindBy(how= How.CLASS_NAME, using="carousel-controls")
   @CacheLookup
@@ -75,15 +80,41 @@ public class HomePage extends Page {
   public JourneyBeginsHerePage navigateToHomePageFrontEnd()
   {
       WebElement homepageFrontendElement ;
+      String focusedWindow ;
+      String journeyPageWindow ;
+      String newWindow ;
+      String windowTitle ;
+      
+     
+      
+      
+      
+      journeyPageWindow = "";
+      focusedWindow = driver.getWindowHandle();
+      windowTitle = driver.getTitle();
+      
+      System.out.println("Current window before switching to new window is "+ focusedWindow);
+      System.out.println("Title of window is " + windowTitle);
       homepageFrontendElement = Find(homePageFrontEndLocator);
       homepageFrontendElement.click();
-      boolean windowSelected ;
+      Set<String> windowHandles = driver.getWindowHandles();
+     
+      for (String windowHandle: windowHandles)
+      
+      {
+    	if (!windowHandle.equals(focusedWindow))
+    	{
+    		driver.switchTo().window(focusedWindow);
+    		driver.close();
+    		newWindow = windowHandle ;
+    		driver.switchTo().window(newWindow);
+    		break ;
+    	}
+      }
+     
+      focusedWindow = driver.getWindowHandle();
       JourneyBeginsHerePage journeyBeginsHerePage = new JourneyBeginsHerePage(driver);
-     windowSelected = SelectWindow("PHPTRAVELS | Travel Technology Partner");
-     if (!windowSelected)
-     {
-        Reporter.log("Unable to select the Journey begins here page");
-     }
+ 
       return journeyBeginsHerePage ;
      
               

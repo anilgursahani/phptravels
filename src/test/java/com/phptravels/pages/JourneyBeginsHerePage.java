@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
  */
 public class JourneyBeginsHerePage extends HomePage
 {
-    private final By activeElementLocator = By.cssSelector("li.text-center.active");
+    private final By activeElementLocator = By.cssSelector("a.text-center.hotels.active");
     private final By hotelsElementLocator = By.cssSelector("i.fa.fa-hotel");
     private final By flightsElementLocator = By.cssSelector("i.fa.fa-plane");
     private final By toursElementLocator= By.cssSelector("i.fa.fa-suitcase");
