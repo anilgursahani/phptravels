@@ -3,3 +3,6 @@ target/
 target/*
 *.lnk
 vendor/*Best Submission.url
+/bin/
+bin/
+bin/*
