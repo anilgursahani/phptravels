@@ -10,10 +10,6 @@ import org.testng.annotations.Test;
 
 import com.phptravels.pages.HomePage;
 import com.phptravels.pages.JourneyBeginsHerePage ;
-import java.util.ArrayList;
-import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 
 
