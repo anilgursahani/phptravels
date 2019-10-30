@@ -1,20 +1,16 @@
 package com.phptravels.pages;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.concurrent.TimeoutException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.testng.Reporter;
 import org.openqa.selenium.WebDriver.TargetLocator;
 
 /**
- * Sample page
+ * Home page this is the page from where we start from
  */
 public class HomePage extends Page {
 
@@ -81,7 +77,6 @@ public class HomePage extends Page {
   {
       WebElement homepageFrontendElement ;
       String focusedWindow ;
-      String journeyPageWindow ;
       String newWindow ;
       String windowTitle ;
       
@@ -89,7 +84,6 @@ public class HomePage extends Page {
       
       
       
-      journeyPageWindow = "";
       focusedWindow = driver.getWindowHandle();
       windowTitle = driver.getTitle();
       

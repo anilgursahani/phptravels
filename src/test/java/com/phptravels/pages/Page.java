@@ -3,15 +3,14 @@ package com.phptravels.pages;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
-import static org.hamcrest.Matchers.equalTo;
+// import static org.hamcrest.Matchers.equalTo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import sun.security.x509.PKIXExtensions;
+// import sun.security.x509.PKIXExtensions;
  import org.openqa.selenium.Keys ;
 
 /**
@@ -65,7 +64,6 @@ public abstract class Page {
           webElement = listIterator.next();
           System.out.println("Web element is " + webElement);
           text = webElement.getText();
-          System.out.println("Text for element is" + text);
           int index ;
           index = text.indexOf(textOfElementToChoose);
           if (index >= 0)
