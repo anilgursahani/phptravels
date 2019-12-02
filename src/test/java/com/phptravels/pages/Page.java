@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 // import sun.security.x509.PKIXExtensions;
@@ -43,9 +44,15 @@ public abstract class Page {
       webElement = driver.findElement(locator);
       return webElement ;
   }
-  public void SelectElementWithTextFromPopup(By locator, String textOfElementToChoose)
+ 
+  
+  public void SelectElementUsingSelectFromPopup(By locator, String elementText)
   {
-      
+	  WebElement selectElement ;
+	  Select selectList ;
+	  selectElement = Find(locator);
+	  selectList = new Select(selectElement);
+	  selectList.selectByVisibleText(elementText);
   }
   public void SelectElementFromPopup(By locator, String textOfElementToChoose)
   {

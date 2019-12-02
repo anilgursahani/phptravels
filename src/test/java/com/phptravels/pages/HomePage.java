@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver.TargetLocator;
  * Home page this is the page from where we start from
  */
 public class HomePage extends Page {
-
+ 
   @FindBy(how = How.TAG_NAME, using = "h1")
   @CacheLookup
   public WebElement header;
@@ -80,15 +80,10 @@ public class HomePage extends Page {
       String newWindow ;
       String windowTitle ;
       
-     
-      
-      
-      
       focusedWindow = driver.getWindowHandle();
-      windowTitle = driver.getTitle();
       
-      System.out.println("Current window before switching to new window is "+ focusedWindow);
-      System.out.println("Title of window is " + windowTitle);
+      windowTitle = driver.getTitle();
+           
       homepageFrontendElement = Find(homePageFrontEndLocator);
       homepageFrontendElement.click();
       Set<String> windowHandles = driver.getWindowHandles();

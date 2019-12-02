@@ -16,7 +16,7 @@ import org.testng.annotations.DataProvider;
 public class PhpTravelsTest extends TestNgTestBase {
 
   private HomePage homepage;
-  private JourneyBeginsHerePage journeypage ;
+  private JourneyBeginsHerePage journeyPage ;
   
 @DataProvider(name = "LoginCredentials")
   public Object[][] createData()
@@ -99,26 +99,37 @@ public void initPageObjects()
  @Test (description = "Test front end of the home page")
  public void testHomePageFrontEnd()
  {
-     journeypage = homepage.navigateToHomePageFrontEnd();
+     journeyPage = homepage.navigateToHomePageFrontEnd();
      String title ;
-     title = journeypage.getTitle();
+     title = journeyPage.getTitle();
      String titleOfActiveElement ;
      boolean titlesMatch ;
      titlesMatch = title.equals("PHPTRAVELS | Travel Technology Partner");
      
      Verify.verify(titlesMatch, "Page title does not match expected title", (Object) "PHPTRAVELS | Travel Technology Partner");
-     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     titleOfActiveElement = journeyPage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.contains("HOTELS"));
  }    
  
+ @Test(description = "Test login to demo", dataProvider="LoginCredentials")
+ public void testLoginToDemo(String username, String password)
+ {
+	 journeyPage = homepage.navigateToHomePageFrontEnd();
+	 journeyPage.LoginToDemo(username, password);
+	 
+	 
+	 
+	 
+ }
  @Test(description = "Test selecting Flight link")
+ 
  public void testSelectingFlights()
  {
      
      String titleOfActiveElement; 
-      journeypage = homepage.navigateToHomePageFrontEnd();
-     journeypage.selectFlights();
-     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+      journeyPage = homepage.navigateToHomePageFrontEnd();
+     journeyPage.selectFlights();
+     titleOfActiveElement = journeyPage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("FLIGHTS"));
  }
  
@@ -126,9 +137,9 @@ public void initPageObjects()
  public void testSelectingTours()
  {
      String titleOfActiveElement ;
-     journeypage = homepage.navigateToHomePageFrontEnd();
-     journeypage.selectTours();
-     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     journeyPage = homepage.navigateToHomePageFrontEnd();
+     journeyPage.selectTours();
+     titleOfActiveElement = journeyPage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("TOURS"));
  }
  
@@ -136,9 +147,9 @@ public void initPageObjects()
  public void testCarsLink()
  {
      String titleOfActiveElement ;
-     journeypage = homepage.navigateToHomePageFrontEnd();
-     journeypage.selectCars();
-     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     journeyPage = homepage.navigateToHomePageFrontEnd();
+     journeyPage.selectCars();
+     titleOfActiveElement = journeyPage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("CARS"));
       try {
         Thread.sleep(5000);
@@ -158,12 +169,12 @@ public void initPageObjects()
      String titleOfActiveElement;
      String hotelChosen ;
 
-     journeypage = homepage.navigateToHomePageFrontEnd();
-     journeypage.selectHotel(hotelOrCity);
+     journeyPage = homepage.navigateToHomePageFrontEnd();
+     journeyPage.selectHotel(hotelOrCity);
     
-     titleOfActiveElement = journeypage.getTitleOfActiveElement();
+     titleOfActiveElement = journeyPage.getTitleOfActiveElement();
      Verify.verify(titleOfActiveElement.equals("HOTELS"));
-     hotelChosen = journeypage.getHotelChosenFromPopup();
+     hotelChosen = journeyPage.getHotelChosenFromPopup();
      
       Assert.assertEquals(hotelChosen, expectedHotelOrCity,"Hotel selected does not match expected hotel");
 
@@ -175,10 +186,10 @@ public void initPageObjects()
  {
       String titleOfActiveElement;
      String hotelChosen ;
-     journeypage = homepage.navigateToHomePageFrontEnd();
+     journeyPage = homepage.navigateToHomePageFrontEnd();
      
-     journeypage.selectHotelFromMenu(textToEnter, cityToChoose);
-     hotelChosen = journeypage.getHotelChosenFromPopup();
+     journeyPage.selectHotelFromMenu(textToEnter, cityToChoose);
+     hotelChosen = journeyPage.getHotelChosenFromPopup();
      
       Assert.assertEquals(hotelChosen, cityToChoose,"Hotel selected does not match expected hotel");
  }
