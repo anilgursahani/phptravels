@@ -1,6 +1,8 @@
 package com.phptravels;
 
 import com.google.common.base.Verify;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 
 import org.testng.Assert;
@@ -10,6 +12,7 @@ import org.testng.annotations.Test;
 
 import com.phptravels.pages.HomePage;
 import com.phptravels.pages.JourneyBeginsHerePage ;
+import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 
 
@@ -97,7 +100,7 @@ public void initPageObjects()
   }
   
  @Test (description = "Test front end of the home page")
- public void testHomePageFrontEnd()
+ public void verifyHomePageFrontEnd()
  {
      journeyPage = homepage.navigateToHomePageFrontEnd();
      String title ;
@@ -108,14 +111,26 @@ public void initPageObjects()
      
      Verify.verify(titlesMatch, "Page title does not match expected title", (Object) "PHPTRAVELS | Travel Technology Partner");
      titleOfActiveElement = journeyPage.getTitleOfActiveElement();
-     Verify.verify(titleOfActiveElement.contains("HOTELS"));
+     
+     
+     Verify.verify(titleOfActiveElement.equalsIgnoreCase("HOTELS"));
  }    
  
  @Test(description = "Test login to demo", dataProvider="LoginCredentials")
- public void testLoginToDemo(String username, String password)
+ public void verifyLoginToDemo(String username, String password)
  {
-	 journeyPage = homepage.navigateToHomePageFrontEnd();
+	    
+         boolean loggedIntoDemo ;
+         String loggedIntoDemoExpectedText = "Hi, Demo User";
+         journeyPage = homepage.navigateToHomePageFrontEnd();
+         
 	 journeyPage.LoginToDemo(username, password);
+         loggedIntoDemo = journeyPage.verifyLoggedIntoDemo(loggedIntoDemoExpectedText);
+         Assert.assertTrue(loggedIntoDemo);
+         
+         
+        
+         
 	 
 	 
 	 

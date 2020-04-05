@@ -128,6 +128,13 @@ public class JourneyBeginsHerePage extends HomePage
      
  }
  
+     public  String  getLoggedInToDemoWelcome()
+    {
+        By h3Locator = By.tagName("h3");
+        return GetText(h3Locator);
+        
+    }
+ 
  public String getHotelChosenFromPopup()
  {
      String hotelChosen ;
@@ -137,6 +144,23 @@ public class JourneyBeginsHerePage extends HomePage
  }
 
 
+ public boolean verifyLoggedIntoDemo(String loggedIntoDemoExpText)
+ {
+     
+  //  By bySelector = By.xpath("//h3[contains(text(), 'Hi, Demo User')]");
+    String xPathSelector = "//h3[contains(text(), ";
+    xPathSelector = xPathSelector + "'" + loggedIntoDemoExpText + "'" ;
+    xPathSelector = xPathSelector + ")]";
+     
+    WebElement we ;
+  
+     we = Find(By.xpath(xPathSelector));
+     
+   
+    return we != null;
+    
+    
+ }
 
 public void LoginToDemo(String username, String password)
  
@@ -156,13 +180,15 @@ public void LoginToDemo(String username, String password)
 	
 	loginElement = fluentWait.until(new LoginElementAppears());
 	loginElement.click();
-	Type(usernameLocator, "user@phptravels.com");
-	Type(passwordLocator, "demouser");
+	Type(usernameLocator, username);
+	Type(passwordLocator, password);
 	Find(loginSubmit).click();
+        
+}    
+	
+
 	
 	
-	
-}	
 	private class LoginElementAppears implements Function<WebElement, WebElement>
 	{
 		public LoginElementAppears()

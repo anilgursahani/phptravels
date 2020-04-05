@@ -6,8 +6,8 @@
       <class name="com.phptravels.PhpTravelsTest">
           <methods>
               <include name="verifyHomePage"/>
-              <include name="testHomePageFrontEnd"/>
-			  <include name="testLoginToDemo"/>
+              <include name="verifyHomePageFrontEnd"/>
+			  <include name="verifyLoginToDemo"/>
               <!--include name="testSelectingFlights"/>
               <include name="testSelectingTours"/>
               <include name="testCarsLink"/>

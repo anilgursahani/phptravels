@@ -6,3 +6,11 @@ vendor/*Best Submission.url
 /bin/
 bin/
 bin/*
+.idea
+".settings"
+".settings\*"
+".settings/*"
+.idea
+.idea/
+.idea/*
+phptravels.iml
